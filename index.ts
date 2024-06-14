@@ -31,7 +31,15 @@ app.use(
     },
   })
 );
-
+app.use(
+  "/course-service",
+  createProxyMiddleware({
+    target: process.env.courseService,
+    pathRewrite: {
+      "^/course-service": "/course-service",
+    },
+  })
+);
 
 app.listen(port, () => {
   console.log("Api Gateway Listening Port");
