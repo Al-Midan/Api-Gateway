@@ -40,9 +40,17 @@ app.use(
     },
   })
 );
+app.use(
+  "/general-service",
+  createProxyMiddleware({
+    target: process.env.courseService,
+    pathRewrite: {
+      "^/general-service": "/general-service",
+    },
+  })
+);
 
 app.listen(port, () => {
   console.log("Api Gateway Listening Port");
 });
-// starting
-// npm run start:dev
+
