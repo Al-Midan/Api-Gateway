@@ -21,7 +21,6 @@ app.use(
 //   });
 //   next();
 // });
-console.log("Welcome");
 app.use(
   "/user-service",
   createProxyMiddleware({
@@ -43,7 +42,7 @@ app.use(
 app.use(
   "/general-service",
   createProxyMiddleware({
-    target: process.env.courseService,
+    target: process.env.generalService,
     pathRewrite: {
       "^/general-service": "/general-service",
     },
