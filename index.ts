@@ -48,6 +48,15 @@ app.use(
     },
   })
 );
+app.use(
+  "/freelance-service",
+  createProxyMiddleware({
+    target: process.env.freelanceService,
+    pathRewrite: {
+      "^/freelance-service": "/freelance-service",
+    },
+  })
+);
 
 app.listen(port, () => {
   console.log("Api Gateway Listening Port");
